@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue.demo</title>
+  <!-- 导入映射表 -->
+  <script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+</head>
+<body>
+
+
+
+<div id="app">
+  <p>{{ message }}</p>
+  <p v-html="rowHtml"></p>
+  <input type="text"  v-bind:disabled="isDisplay" placeholder="v-bind test1">
+  <br>
+  <input type="text"  :disabled="isDisplay" placeholder="v-bind test2">
+  <br>
+  <input type="text" v-bind="attrObj" placeholder="v-bind obj test">
+  <br>
+  <input type="text"  v-bind:disabled="!scripttest" placeholder="script test">
+  <p v-if="seen">v-if test </p>
+  <h6>
+    响应式对象or 数组
+  </h6>
+  <div>{{ state.count }}</div>
+  <button @click="increment">
+    {{ state.count }}
+  </button>
+  <button @Click="add10">add10</button>
+
+</div>
+
+<script type="module">
+  import { createApp ,reactive } from 'vue'
+
+  const app = createApp({
+    data() {
+      return {
+        message: '<p>Using text</p>',
+        rowHtml: '<p>Using text</p>',
+        isDisplay: true,
+        attrObj:{
+          disabled: true
+        },
+        scripttest: false,
+        seen: false,
+        state: reactive({ count: 0 })
+      }
+    },
+    methods:{
+      increment(){
+        this.state.count++;
+      },
+      add10(){
+        this.state.count+=10;
+      }
+    }
+  });
+  /*挂在应用到#app DOM上*/
+  app.mount('#app');
+
+
+</script>
+
+</body>
+</html>
