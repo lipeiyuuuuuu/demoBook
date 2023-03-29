@@ -1,6 +1,5 @@
 package com.demoBook;
 
-import cn.hutool.json.JSONUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +14,5 @@ import java.util.List;
  */
 public class MavenTest {
     /*测试引用父工程的方法*/
-    public void testParentMethod(){
-        Tools tools = new Tools();
-        tools.tool1();
 
-        List<String> list = new ArrayList<>();
-        list.add("123");
-        JSONUtil.toJsonStr(list);
-    }
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Two-step Progress Bar</title>
+  <style>
+    .step {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h2>Step 1: Enter Details</h2>
+  <div class="step active" id="step1">
+    <label>Name:</label>
+    <input type="text" id="name" />
+    <br />
+    <label>Email:</label>
+    <input type="email" id="email" />
+    <br />
+
+    <button onclick="gotoStep2()">Next</button>
+  </div>
+  <h2>Step 2: Confirm Details</h2>
+  <div class="step" id="step2">
+    <p>Please confirm the following details:</p>
+    <ul>
+      <li>Name: <span id="confirm_name"></span></li>
+      <li>Email: <span id="confirm_email"></span></li>
+    </ul>
+
+    <button onclick="submitForm()">Confirm</button>
+  </div>
+</div>
+
+<script>
+  function gotoStep2() {
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+
+    document.getElementById('confirm_name').textContent = document.getElementById('name').value;
+    document.getElementById('confirm_email').textContent = document.getElementById('email').value;
+
+    document.getElementById('step1_button').style.display = 'none';
+    document.getElementById('step2_button').style.display = 'block';
+  }
+
+  function submitForm() {
+    alert('Form submitted!');
+  }
+</script>
+</body>
+</html>

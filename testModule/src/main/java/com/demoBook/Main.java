@@ -1,6 +1,5 @@
 package com.demoBook;
 
-import org.junit.Test;
 
 /**
  * ClassName: ${NAME}
