@@ -7,3 +7,4 @@
 
 -- amend test1
 -- amend test2
+-- amend test3
